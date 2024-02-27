@@ -29,7 +29,8 @@ import {
 export const productListReducer = (state = { products: [] }, action) => {
 	switch (action.type) {
 		case PRODUCT_LIST_REQUEST:
-			return { loading: true, products: [] };
+			return { ...state, 
+				loading: true };
 
 		case PRODUCT_LIST_SUCCESS:
 			return {
@@ -43,7 +44,7 @@ export const productListReducer = (state = { products: [] }, action) => {
 			return { loading: false, error: action.payload };
 
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 
